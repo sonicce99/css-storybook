@@ -1,13 +1,13 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const Loader = memo(() => {
+const Loader = () => {
   return (
     <Container>
       <Spinner />
     </Container>
   );
-});
+};
 
 export default Loader;
 
