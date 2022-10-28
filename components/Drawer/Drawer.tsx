@@ -1,15 +1,22 @@
 import Image from "next/image";
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import closeIcon from "../../public/assets/close.svg";
 
-const Drawer = ({ isOpen, closeDrawer, children }) => {
+interface Props {
+  isOpen: boolean;
+  closeDrawer: () => void;
+  title: ReactNode;
+  children: ReactNode;
+}
+
+const Drawer: React.FC<Props> = ({ isOpen, closeDrawer, title, children }) => {
   return (
     <Container>
       <DrawerOutside onClick={closeDrawer} isOpen={isOpen} />
       <DrawerContent isOpen={isOpen}>
         <DrawerHeader>
-          <DrawerTitle>Header</DrawerTitle>
+          <DrawerTitle>{title}</DrawerTitle>
           <CloseBtn onClick={closeDrawer}>
             <Image src={closeIcon} alt="closeIcon" />
           </CloseBtn>
@@ -23,28 +30,32 @@ const Drawer = ({ isOpen, closeDrawer, children }) => {
 
 export default Drawer;
 
+interface StyledProps {
+  isOpen: boolean;
+}
+
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
 `;
 
-const DrawerOutside = styled(Container)`
+const DrawerOutside = styled(Container)<StyledProps>`
   height: ${({ isOpen }) => (isOpen ? "100vh" : 0)};
   background-color: ${({ isOpen }) => (isOpen ? "#112118" : "black")};
   opacity: 0.5;
 `;
 
-const DrawerContent = styled(Container)`
+const DrawerContent = styled(Container)<StyledProps>`
   bottom: 0;
   right: 0;
-  width: ${({ isOpen }) => (isOpen ? "500px" : 0)};
-  height: 100vh;
+  transform: translateX(${({ isOpen }) => (isOpen ? 0 : "100%")});
+  transition: -webkit-transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+  width: 500px;
+  height: 100%;
   background-color: #ffffff;
-  transition: width 1s;
-  box-shadow: -1px 0px 5px 5px rgba(72, 122, 180, 0.7);
-  overflow: auto;
+  box-shadow: -2px 0 8px rgba(224, 4, 4, 1);
   opacity: 1;
   color: black;
 `;
@@ -63,6 +74,7 @@ const DrawerTitle = styled.div`
 const CloseBtn = styled.button`
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 const DrawerBody = styled.div`
