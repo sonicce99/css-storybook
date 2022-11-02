@@ -1,11 +1,12 @@
 import React from "react";
+import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
+import { BiBed } from "react-icons/bi";
+import { HiPlus } from "react-icons/hi";
+import wifi from "../public/assets/wifi.svg";
 import battery from "../public/assets/battery.svg";
 import cellular from "../public/assets/cellular.svg";
-import wifi from "../public/assets/wifi.svg";
-import { HiPlus } from "react-icons/hi";
-import { BiBed } from "react-icons/bi";
 
 const Switch = () => {
   const [isOn, setIsOn] = useState(false);
@@ -18,9 +19,9 @@ const Switch = () => {
         <Header>
           <CurrTime>11:11</CurrTime>
           <FlexBox spaceAround>
-            <Image src={cellular} alt="cellular" />
-            <Image src={wifi} alt="wifi" />
-            <Image src={battery} alt="battery" />
+            <Image width={35} height={35} src={cellular} alt="cellular" />
+            <Image width={35} height={35} src={wifi} alt="wifi" />
+            <Image width={35} height={35} src={battery} alt="battery" />
           </FlexBox>
         </Header>
 
@@ -90,12 +91,6 @@ const Header = styled.header`
 
 const CurrTime = styled.div`
   font-size: 40px;
-`;
-
-const Image = styled.img`
-  width: 50px;
-  height: 50px;
-  margin-right: 15px;
 `;
 
 const FlexBox = styled.div`
