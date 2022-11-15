@@ -1,25 +1,25 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-interface ContainerProps {
+interface Props {
+  text: string;
   radius: number;
+  backgroundColor: string;
 }
+
+type ContainerProps = Pick<Props, "radius">;
 
 interface TextProps extends ContainerProps {
   index: number;
-  textWidth: number;
+  backgroundColor: string;
 }
 
-const App = () => {
-  const text = "Hi! My name is Dong Su Lee. I'm Web Front Developer.";
-  const radius = 200;
-  const textWidth = 30;
-
+const App: React.FC<Props> = ({ radius, text, backgroundColor }) => {
   return (
     <Container radius={radius}>
       {text.split("").map((string, index) => {
         return (
-          <Text radius={radius} index={index} textWidth={textWidth}>
+          <Text radius={radius} index={index} backgroundColor={backgroundColor}>
             {string}
           </Text>
         );
@@ -55,11 +55,12 @@ const Container = styled.div<ContainerProps>`
 
 const Text = styled.span<TextProps>`
   font-size: 30px;
+  color: ${({ backgroundColor }) => backgroundColor};
   text-align: center;
-  width: ${({ textWidth }) => textWidth}px;
+  width: 30px;
   height: ${({ radius }) => `${radius}px`};
   position: absolute;
-  left: ${({ radius, textWidth }) => radius - textWidth / 2}px;
+  left: ${({ radius }) => radius - 30 / 2}px;
   transform-origin: bottom center;
   transform: rotate(${({ index }) => 6 * (index + 1)}deg);
 `;
