@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import Earth from "./bar/Earch";
+import Fire from "./bar/Fire";
+import Sky from "./bar/Sky";
+import Water from "./bar/Water";
 import Circle from "./Circle";
 
-const App: React.FC = () => {
-  const [width, setWidth] = useState<number>(600);
+interface Props {
+  width: number;
+}
 
+const App: React.FC<Props> = ({ width }) => {
   return (
     <Container width={width}>
+      <Sky width={width} />
+      <Water width={width} />
       <Circle width={width} />
+      <Earth width={width} />
+      <Fire width={width} />
     </Container>
   );
 };
 
 export default App;
 
-interface StyleProps {
-  width: number;
-}
-
-const Container = styled.div<StyleProps>`
+const Container = styled.div<Props>`
   width: ${({ width }) => width}px;
-  height: ${({ width }) => (width / 3) * 2}px;
+  position: relative;
+  height: ${({ width }) => Math.floor(width / 3) * 2}px;
   border: 3px solid black;
-  background-color: #ffffff;
+  background: linear-gradient(-33.5deg, #f3f5f0 50%, #dfe8eb 50%);
+
+  top: calc(50vh - ${({ width }) => Math.floor(width / 3)}px);
+  margin: 0 auto;
 `;
