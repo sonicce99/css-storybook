@@ -23,9 +23,9 @@ const Water: React.FC<Props> = ({ width }) => {
   }, [width]);
 
   const handleLocationX = (width: number) =>
-    setLocationX(Math.floor(width / 3) * 2);
+    setLocationX(Math.floor(width / 3) * 2 + 3);
   const handleLocationY = (width: number) =>
-    setLocationY(Math.floor((Math.floor(width / 3) * 2) / 5) * 3 - 177);
+    setLocationY(Math.floor((Math.floor(width / 6) * 2) / 3) - 5);
 
   return (
     <Container locationX={locationX} locationY={locationY} width={width}>
@@ -43,10 +43,10 @@ const Container = styled.div<StyleProps>`
   height: ${({ width }) => Math.floor(width / 9)}px;
 
   transform: translate(
-    ${({ locationX }) => `${locationX}`}px,
-    ${({ locationY }) => `${locationY}`}px
-  );
-  /* rotate(55deg); */
+      ${({ locationX }) => `${locationX}`}px,
+      ${({ locationY }) => `${locationY}`}px
+    )
+    rotate(55deg);
   position: absolute;
   transform-origin: center;
 `;

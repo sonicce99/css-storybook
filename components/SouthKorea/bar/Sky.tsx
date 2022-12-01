@@ -13,24 +13,18 @@ interface StyleProps extends Props {
 
 // 건
 const Sky: React.FC<Props> = ({ width }) => {
-  const [barTerm, setBarTerm] = useState<number>(0);
-
   const [locationX, setLocationX] = useState<number>(0);
   const [locationY, setLocationY] = useState<number>(0);
 
   useEffect(() => {
-    handleBarTerm(width);
-
     handleLocationX(width);
     handleLocationY(width);
   }, [width]);
 
-  const handleBarTerm = (width: number) => setBarTerm(Math.floor(width / 72));
-
   const handleLocationX = (width: number) =>
-    setLocationX(Math.floor(width / 6));
+    setLocationX(Math.floor(width / 6) - 6);
   const handleLocationY = (width: number) =>
-    setLocationY(Math.floor((Math.floor(width / 6) * 2) / 3));
+    setLocationY(Math.floor((Math.floor(width / 6) * 2) / 3) - 5);
 
   return (
     <Container locationX={locationX} locationY={locationY} width={width}>
@@ -48,10 +42,10 @@ const Container = styled.div<StyleProps>`
   height: ${({ width }) => Math.floor(width / 9)}px;
 
   transform: translate(
-    ${({ locationX }) => `${locationX}`}px,
-    ${({ locationY }) => `${locationY}`}px
-  );
-  /* rotate(-56.5deg); */
+      ${({ locationX }) => `${locationX}`}px,
+      ${({ locationY }) => `${locationY}`}px
+    )
+    rotate(-56.5deg);
   position: absolute;
   transform-origin: center;
 `;
