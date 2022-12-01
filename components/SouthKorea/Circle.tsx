@@ -1,19 +1,31 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
 
 interface Props {
   width: number;
 }
 
-const Circle: React.FC<Props> = ({ width }) => {
-  return (
-    <Container width={width}>
-      <BigRed width={width} />
-      <BigBlue width={width} />
+interface StyleProps {
+  circleWidth: number;
+}
 
-      <SmallCircle width={width}>
-        <SmallBlue width={width} />
-        <SmallRed width={width} />
+const Circle: React.FC<Props> = ({ width }) => {
+  const [circleWidth, setCircleWidth] = useState<number>(0);
+
+  const handleCircleWidth = (value: number) => setCircleWidth(value);
+
+  useEffect(() => {
+    handleCircleWidth(Math.floor(width / 3));
+  }, [width]);
+
+  return (
+    <Container circleWidth={circleWidth}>
+      <BigRed circleWidth={circleWidth} />
+      <BigBlue circleWidth={circleWidth} />
+
+      <SmallCircle circleWidth={circleWidth}>
+        <SmallBlue circleWidth={circleWidth} />
+        <SmallRed circleWidth={circleWidth} />
       </SmallCircle>
     </Container>
   );
@@ -21,49 +33,63 @@ const Circle: React.FC<Props> = ({ width }) => {
 
 export default Circle;
 
-const Container = styled.div<Props>`
-  width: ${({ width }) => width / 3}px;
-  height: ${({ width }) => width / 3}px;
-  position: relative;
+const rotate = keyframes`
+  from {
+    transform: rotate(123.5deg);
+  }
+
+  to {
+    transform: rotate(483.5deg);
+  }
 `;
 
-const BigRed = styled.div<Props>`
-  border-radius: 100px 0 0 100px;
+const Container = styled.div<StyleProps>`
+  width: ${({ circleWidth }) => circleWidth}px;
+  height: ${({ circleWidth }) => circleWidth}px;
+
+  position: relative;
+  top: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
+  margin: 0 auto;
+
+  animation: ${rotate} 10s ease-in-out infinite;
+`;
+
+const BigRed = styled.div<StyleProps>`
+  border-radius: ${({ circleWidth }) =>
+    `${Math.floor(circleWidth / 2)}px 0 0 ${Math.floor(circleWidth / 2)}px`};
   transform-origin: right;
-  transform: rotate(120deg);
   background-color: #d0303b;
   position: absolute;
   top: 0;
   left: 0;
-  width: ${({ width }) => width / 3 / 2}px;
-  height: ${({ width }) => width / 3}px;
+  width: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
+  height: ${({ circleWidth }) => circleWidth}px;
 `;
 
-const BigBlue = styled.div<Props>`
-  border-radius: 0 100px 100px 0;
+const BigBlue = styled.div<StyleProps>`
+  border-radius: ${({ circleWidth }) =>
+    `0 ${Math.floor(circleWidth / 2)}px ${Math.floor(circleWidth / 2)}px 0`};
   transform-origin: left;
-  transform: rotate(120deg);
   background-color: #134b9e;
   position: absolute;
   top: 0;
   right: 0;
-  width: ${({ width }) => width / 3 / 2}px;
-  height: ${({ width }) => width / 3}px;
+  width: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
+  height: ${({ circleWidth }) => circleWidth}px;
 `;
 
-const SmallCircle = styled.div<Props>`
-  width: ${({ width }) => width / 3 / 2}px;
-  height: ${({ width }) => width / 3}px;
+const SmallCircle = styled.div<StyleProps>`
+  width: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
+  height: ${({ circleWidth }) => circleWidth}px;
   position: relative;
-  transform: rotate(120deg);
   top: 0;
-  left: 50px;
+  left: ${({ circleWidth }) => Math.floor(circleWidth / 4)}px;
 `;
 
-const SmallRed = styled.div<Props>`
+const SmallRed = styled.div<StyleProps>`
   background-color: #d0303b;
-  width: ${({ width }) => width / 3 / 2}px;
-  height: ${({ width }) => width / 3 / 2}px;
+  width: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
+  height: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
   border-radius: 50%;
 
   position: absolute;
@@ -71,10 +97,10 @@ const SmallRed = styled.div<Props>`
   left: 0;
 `;
 
-const SmallBlue = styled.div<Props>`
+const SmallBlue = styled.div<StyleProps>`
   background-color: #134b9e;
-  width: ${({ width }) => width / 3 / 2}px;
-  height: ${({ width }) => width / 3 / 2}px;
+  width: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
+  height: ${({ circleWidth }) => Math.floor(circleWidth / 2)}px;
   border-radius: 50%;
 
   position: absolute;
