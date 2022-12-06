@@ -19,7 +19,12 @@ const App: React.FC<Props> = ({ radius, text, backgroundColor }) => {
     <Container radius={radius}>
       {text.split("").map((string, index) => {
         return (
-          <Text radius={radius} index={index} backgroundColor={backgroundColor}>
+          <Text
+            key={string}
+            radius={radius}
+            index={index}
+            backgroundColor={backgroundColor}
+          >
             {string}
           </Text>
         );
