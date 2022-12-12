@@ -54,21 +54,14 @@ const Menu = styled.nav<MenuProps>`
   width: 220px;
   right: 0px;
 
-  background-color: black;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: black;
   border-radius: 8px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
 
   transition: opacity 0.5s;
 
   visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
-
-  @media (prefers-color-scheme: dark) {
-    & {
-      background-color: #ffffff;
-      color: black;
-    }
-  }
 `;
 
 const Introduce = styled.div`
@@ -93,6 +86,7 @@ const Icon = styled.div`
 `;
 
 const Li = styled.li`
+  cursor: pointer;
   color: #333333;
   padding: 10px 15px;
   border-top: 1px solid #dddddd;
