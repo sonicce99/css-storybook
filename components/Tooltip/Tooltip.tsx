@@ -1,19 +1,25 @@
-import React, { ReactNode, useRef, useState } from "react";
 import styled from "styled-components";
-import getBottomPosition from "./position/getBottomPosition";
-import getLeftPosition from "./position/getLeftPosition";
-import getRightPosition from "./position/getRightPosition";
+import React, { useRef, useState } from "react";
+import getContentMargin from "./fnc/getContentMargin";
+import getTopPosition from "./fnc/position/content/getTopPosition";
+import getLeftPosition from "./fnc/position/content/getLeftPosition";
+import getRightPosition from "./fnc/position/content/getRightPosition";
+import getBottomPosition from "./fnc/position/content/getBottomPosition";
+import getArrowTopPosition from "./fnc/position/arrow/getArrowTopPosition";
+import getArrowLeftPosition from "./fnc/position/arrow/getArrowLeftPosition";
+import getArrowRightPosition from "./fnc/position/arrow/getArrowRightPosition";
+import getArrowBottomPosition from "./fnc/position/arrow/getArrowBottomPosition";
 
 interface Props {
-  text: ReactNode;
+  text: string;
   placement: string;
   color: string;
   children: JSX.Element;
 }
 
-type Placement = Pick<Props, "placement">;
+type PickProps = Pick<Props, "placement" | "text">;
 
-interface StyleProps extends Placement {
+interface StyleProps extends PickProps {
   isVisible: boolean;
   containerEl: React.RefObject<HTMLDivElement>;
 }
@@ -39,6 +45,7 @@ const Tooltip: React.FC<Props> = ({ text, placement, color, children }) => {
         placement={placement}
         color={color}
         containerEl={containerEl}
+        text={text}
       >
         {text}
       </Content>
@@ -49,24 +56,47 @@ const Tooltip: React.FC<Props> = ({ text, placement, color, children }) => {
 export default Tooltip;
 
 const Container = styled.span`
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Content = styled.div<StyleProps>`
+  display: ${({ text }) => (text.length > 0 ? "block" : "none")};
   background-color: ${({ color }) => color};
   visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
+  width: max-content;
+  max-width: 250px;
+  min-width: 32px;
+  word-break: break-all;
+
   text-align: start;
-  word-wrap: break-word;
   padding: 6px 8px;
   border-radius: 6px;
+  margin: ${({ placement }) => getContentMargin(placement)};
 
   position: absolute;
 
+  top: ${({ placement }) => getTopPosition(placement)};
   bottom: ${({ placement, containerEl }) =>
     getBottomPosition(placement, containerEl)};
-
   left: ${({ placement, containerEl }) =>
     getLeftPosition(placement, containerEl)};
+  right: ${({ placement }) => getRightPosition(placement)};
 
-  right: ${({ placement }) => getRightPosition(placement)}; ;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: ${({ placement, containerEl }) =>
+      getArrowTopPosition(placement, containerEl)};
+    left: ${({ placement, containerEl }) =>
+      getArrowLeftPosition(placement, containerEl)};
+    right: ${({ placement }) => getArrowRightPosition(placement)};
+    bottom: ${({ placement }) => getArrowBottomPosition(placement)};
+    width: 15px;
+    height: 15px;
+    background-color: ${({ color }) => color};
+    transform: rotate(45deg);
+  }
 `;
