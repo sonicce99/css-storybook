@@ -55,20 +55,15 @@ const Tooltip: React.FC<Props> = ({ text, placement, color, children }) => {
 
 export default Tooltip;
 
-const Container = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Content = styled.div<StyleProps>`
   display: ${({ text }) => (text.length > 0 ? "block" : "none")};
   background-color: ${({ color }) => color};
-  visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
-  width: max-content;
+  opacity: 0;
   max-width: 250px;
   min-width: 32px;
   word-break: break-all;
+
+  animation: visibility 2s linear infinite;
 
   text-align: start;
   padding: 6px 8px;
@@ -76,7 +71,6 @@ const Content = styled.div<StyleProps>`
   margin: ${({ placement }) => getContentMargin(placement)};
 
   position: absolute;
-
   top: ${({ placement }) => getTopPosition(placement)};
   bottom: ${({ placement, containerEl }) =>
     getBottomPosition(placement, containerEl)};
@@ -86,6 +80,10 @@ const Content = styled.div<StyleProps>`
 
   &::before {
     content: "";
+    width: 15px;
+    height: 15px;
+    background-color: ${({ color }) => color};
+
     position: absolute;
     z-index: -1;
     top: ${({ placement, containerEl }) =>
@@ -94,9 +92,19 @@ const Content = styled.div<StyleProps>`
       getArrowLeftPosition(placement, containerEl)};
     right: ${({ placement }) => getArrowRightPosition(placement)};
     bottom: ${({ placement }) => getArrowBottomPosition(placement)};
-    width: 15px;
-    height: 15px;
-    background-color: ${({ color }) => color};
     transform: rotate(45deg);
+  }
+`;
+
+const Container = styled.span`
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    ${Content} {
+      width: max-content;
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
   }
 `;
