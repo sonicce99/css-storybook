@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const Loader = () => {
+const Loading = () => {
   return (
     <Container>
       <Spinner />
@@ -9,7 +9,7 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default Loading;
 
 const spin = keyframes`
   0% {
