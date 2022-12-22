@@ -58,6 +58,8 @@ const DrawerContent = styled(Container)<StyledProps>`
   box-shadow: -2px 0 8px rgba(224, 4, 4, 1);
   opacity: 1;
   color: black;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 `;
 
 const DrawerHeader = styled.div`
@@ -69,6 +71,8 @@ const DrawerHeader = styled.div`
 
 const DrawerTitle = styled.div`
   padding: 17px 24px 16px 24px;
+  width: 452px;
+  word-wrap: break-word;
 `;
 
 const CloseBtn = styled.button`
