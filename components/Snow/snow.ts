@@ -1,19 +1,19 @@
 import { css, keyframes } from "styled-components";
 
 export default class Snow {
-  private opacity: number;
-  private snowScale: number;
+  private readonly opacity: number;
+  private readonly snowScale: number;
 
-  private start_X_Point: number;
-  private offSet_X: number;
-  private end_X_Point: number;
+  private readonly start_X_Point: number;
+  private readonly offSet_X: number;
+  private readonly end_X_Point: number;
 
-  private return_X_Point: number;
-  private return_time: number;
-  private Y_Point: number;
+  private readonly return_X_Point: number;
+  private readonly return_time: number;
+  private readonly Y_Point: number;
 
-  private animation_duration: string;
-  private animation_delay: string;
+  private readonly animation_duration: string;
+  private readonly animation_delay: string;
 
   constructor() {
     this.opacity = Math.random();
