@@ -9,7 +9,7 @@ interface StyleProps {
 }
 
 const App: React.FC = () => {
-  const size = 150;
+  const size = 500;
   const array = new Array(size).fill(null);
 
   return (
