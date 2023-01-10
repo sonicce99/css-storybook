@@ -148,9 +148,18 @@ const Swiper: React.FC<Props> = ({
       >
         {children}
       </Container>
-      {navigation ? <Prev onClick={prevMove} currPage={currPage} /> : null}
       {navigation ? (
-        <Next onClick={nextMove} currPage={currPage} maxPage={maxPage} />
+        <Prev
+          onClick={currPage === 1 ? undefined : prevMove}
+          currPage={currPage}
+        />
+      ) : null}
+      {navigation ? (
+        <Next
+          onClick={currPage < maxPage ? nextMove : undefined}
+          currPage={currPage}
+          maxPage={maxPage}
+        />
       ) : null}
       {pagination ? Pagination() : null}
     </>
