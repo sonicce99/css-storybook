@@ -2,17 +2,22 @@ import App from "components/MovingText";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Moving-text",
+  title: "dongsu/Moving Text",
   component: App,
 
   argTypes: {
     radius: {
+      description: "반지름을 조절 할 수 있습니다.",
       control: { type: "number", min: 200, max: 500, step: 30 },
     },
     text: {
+      description: "글자 내용을 변경 할 수 있습니다.",
       control: { control: "text" },
     },
-    backgroundColor: { control: "color" },
+    textColor: {
+      description: "글자 색상을 변경 할 수 있습니다.",
+      control: "color",
+    },
   },
 } as ComponentMeta<typeof App>;
 
@@ -22,5 +27,5 @@ export const Circle = Template.bind({});
 Circle.args = {
   radius: 200,
   text: "Hi! My name is Dong Su Lee. I'm Web Front Developer.",
-  backgroundColor: "white",
+  textColor: "white",
 };

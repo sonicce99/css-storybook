@@ -4,17 +4,17 @@ import styled, { keyframes } from "styled-components";
 interface Props {
   text: string;
   radius: number;
-  backgroundColor: string;
+  textColor: string;
 }
 
 type ContainerProps = Pick<Props, "radius">;
 
 interface TextProps extends ContainerProps {
   index: number;
-  backgroundColor: string;
+  textColor: string;
 }
 
-const App: React.FC<Props> = ({ radius, text, backgroundColor }) => {
+const App: React.FC<Props> = ({ radius, text, textColor }) => {
   return (
     <Container radius={radius}>
       {text.split("").map((string, index) => {
@@ -23,7 +23,7 @@ const App: React.FC<Props> = ({ radius, text, backgroundColor }) => {
             key={string}
             radius={radius}
             index={index}
-            backgroundColor={backgroundColor}
+            textColor={textColor}
           >
             {string}
           </Text>
@@ -60,7 +60,7 @@ const Container = styled.div<ContainerProps>`
 
 const Text = styled.span<TextProps>`
   font-size: 30px;
-  color: ${({ backgroundColor }) => backgroundColor};
+  color: ${({ textColor }) => textColor};
   text-align: center;
   width: 30px;
   height: ${({ radius }) => `${radius}px`};

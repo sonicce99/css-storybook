@@ -7,6 +7,7 @@ export default {
 
   argTypes: {
     viewers: {
+      description: "시청자 수를 변경할 수 있습니다.",
       control: { type: "number", min: 1, max: 30, step: 1 },
     },
   },

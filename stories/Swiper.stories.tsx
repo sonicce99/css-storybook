@@ -5,6 +5,15 @@ export default {
   title: "dongsu/Swiper",
   component: App,
 
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "마우스로 드래그 하거나, navigation, pagination을 통해 이미지를 움직일 수 있습니다.",
+      },
+    },
+  },
+
   argTypes: {
     navigation: {
       description: "화살표 버튼을 눌러 한 페이지씩 이동할 수 있습니다.",

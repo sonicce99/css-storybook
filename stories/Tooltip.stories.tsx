@@ -5,8 +5,17 @@ export default {
   title: "dongsu/Tooltip",
   component: App,
 
+  parameters: {
+    docs: {
+      description: {
+        component: "Tooltip의 방향에 맞게 포인터가 조절됩니다.",
+      },
+    },
+  },
+
   argTypes: {
     text: {
+      description: "원하는 텍스트로 변경할 수 있습니다.",
       control: { control: "text" },
     },
   },

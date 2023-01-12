@@ -7,9 +7,11 @@ export default {
 
   argTypes: {
     title: {
+      description: "제목을 설정합니다.",
       control: { control: "text" },
     },
     contents: {
+      description: "내용을 설정합니다.",
       control: { control: "text" },
     },
   },

@@ -2,7 +2,7 @@ import App from "components/SouthKorea";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/South-Korea",
+  title: "dongsu/South Korea",
   component: App,
 
   parameters: {
@@ -13,6 +13,7 @@ export default {
 
   argTypes: {
     width: {
+      description: "태극기의 너비를 조절할 수 있습니다.",
       control: { type: "number", min: 300, max: 800, step: 20 },
     },
   },
