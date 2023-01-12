@@ -79,7 +79,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: calc(50vw - 200px);
+  margin-left: calc(50vw - 250px);
   margin-top: calc(50vh - 90px);
 `;
 
