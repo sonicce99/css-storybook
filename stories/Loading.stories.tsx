@@ -6,8 +6,6 @@ export default {
   compnent: Loading,
 } as ComponentMeta<typeof Loading>;
 
-const Templete: ComponentStory<typeof Loading> = (args: any) => (
-  <Loading {...args} />
-);
+const Templete: ComponentStory<typeof Loading> = () => <Loading />;
 
 export const Default = Templete.bind({});
