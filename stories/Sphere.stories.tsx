@@ -23,7 +23,7 @@ export default {
     },
 
     height: {
-      description: "구체를 높이를 조절 할 수 있습니다..",
+      description: "구체를 높이를 조절 할 수 있습니다.",
       control: { type: "number", min: 100, max: 600, step: 100 },
     },
   },
