@@ -26,11 +26,6 @@ export default {
       description: "구체를 높이를 조절 할 수 있습니다..",
       control: { type: "number", min: 0, max: 600, step: 100 },
     },
-
-    perspective: {
-      description: "구체를 원근감를 조절 할 수 있습니다..",
-      control: { type: "number", min: 100, max: 600, step: 100 },
-    },
   },
 } as ComponentMeta<typeof App>;
 
@@ -38,8 +33,7 @@ const Template: ComponentStory<typeof App> = (args) => <App {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  lines: 100,
+  lines: 70,
   width: 500,
   height: 500,
-  perspective: 500,
 };

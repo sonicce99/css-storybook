@@ -5,17 +5,16 @@ interface Props {
   lines: number;
   width: number;
   height: number;
-  perspective: number;
 }
 
-type ContainerProps = Pick<Props, "width" | "height" | "perspective">;
+type Size = Pick<Props, "width" | "height">;
 
 interface RingProps {
   color: string;
   angle: number;
 }
 
-const App: React.FC<Props> = ({ lines, width, height, perspective }) => {
+const App: React.FC<Props> = ({ lines, width, height }) => {
   const [array, setArray] = useState<null[]>([]);
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const App: React.FC<Props> = ({ lines, width, height, perspective }) => {
   };
 
   return (
-    <Container width={width} height={height} perspective={perspective}>
+    <Container width={width} height={height}>
       <Scene>
         {array.map((_, index) => {
           const color = getRandomColor();
@@ -56,12 +55,11 @@ const ringAnimation = keyframes`
   }
 `;
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.div<Size>`
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
   margin: 0 auto;
   margin-top: calc(50vh - ${({ height }) => Math.floor(height / 2)}px);
-  perspective: ${({ perspective }) => perspective}px;
 `;
 
 const Scene = styled.div`
