@@ -19,12 +19,12 @@ export default {
 
     width: {
       description: "구체를 너비를 조절 할 수 있습니다.",
-      control: { type: "number", min: 0, max: 600, step: 100 },
+      control: { type: "number", min: 100, max: 600, step: 100 },
     },
 
     height: {
       description: "구체를 높이를 조절 할 수 있습니다..",
-      control: { type: "number", min: 0, max: 600, step: 100 },
+      control: { type: "number", min: 100, max: 600, step: 100 },
     },
   },
 } as ComponentMeta<typeof App>;
