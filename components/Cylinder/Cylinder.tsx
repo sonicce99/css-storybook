@@ -20,10 +20,17 @@ interface FaceProps {
 }
 
 const Cylinder: React.FC<Props> = ({ radius, faceCount, rotateX }) => {
+  const [array, setArray] = useState<null[]>([]);
   const [faceWidth, setFaceWidth] = useState<number>(0);
-  const array = new Array(faceCount).fill(null);
 
+  const handleArray = (value: null[]) => setArray(value);
   const handleFaceWidth = (value: number) => setFaceWidth(value);
+
+  useEffect(() => {
+    if (faceCount) {
+      handleArray(new Array(faceCount).fill(null));
+    }
+  }, [faceCount]);
 
   useEffect(() => {
     if (radius && faceCount) {
