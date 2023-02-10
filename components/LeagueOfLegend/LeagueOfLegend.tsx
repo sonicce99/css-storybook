@@ -59,7 +59,7 @@ const Container = styled.div`
   position: absolute;
   padding: 0px 250px 0px 250px;
   width: 1215px;
-  height: 715px;
+  height: 665px;
   background-image: url(${joy.src});
   background-size: cover;
   background-clip: content-box;
@@ -85,6 +85,7 @@ const Header = styled.div`
   z-index: 99;
   width: 100%;
   height: 100px;
+  margin-top: 5px;
 `;
 
 const ChampionZone = styled.div`
