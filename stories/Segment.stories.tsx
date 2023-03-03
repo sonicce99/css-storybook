@@ -14,7 +14,7 @@ export default {
   argTypes: {
     number: {
       description: "렌더링 하고 싶은 숫자를 표시할 수 있습니다.",
-      control: { type: "number", min: 1, max: 999, step: 1 },
+      control: { type: "number", min: 0, max: 999, step: 1 },
     },
   },
 } as ComponentMeta<typeof App>;
