@@ -1,9 +1,9 @@
-import App from "../components/Dropdown";
+import App from "components/Dropdown";
 import { Story, Meta } from "@storybook/react";
 import { Props } from "components/Dropdown/Dropdown";
 
 export default {
-  title: "dongsu/Dropdown",
+  title: "styled-components/Dropdown",
   component: App,
 } as Meta;
 

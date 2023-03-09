@@ -2,7 +2,7 @@ import App from "components/SouthKorea";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/South Korea",
+  title: "styled-components/South Korea",
   component: App,
 
   parameters: {

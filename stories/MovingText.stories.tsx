@@ -2,7 +2,7 @@ import App from "components/MovingText";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Moving Text",
+  title: "styled-components/Moving Text",
   component: App,
 
   argTypes: {

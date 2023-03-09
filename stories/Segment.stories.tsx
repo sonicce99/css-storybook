@@ -2,7 +2,7 @@ import App from "components/Segment";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Segment",
+  title: "styled-components/Segment",
   component: App,
 
   parameters: {

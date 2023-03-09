@@ -2,7 +2,7 @@ import ScrollBar from "../components/ScrollBar";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/ScrollBar",
+  title: "styled-components/ScrollBar",
   component: ScrollBar,
 } as ComponentMeta<typeof ScrollBar>;
 

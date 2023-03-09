@@ -2,7 +2,7 @@ import App from "components/Rhythm";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Rhythm",
+  title: "styled-components/Rhythm",
   component: App,
 } as ComponentMeta<typeof App>;
 

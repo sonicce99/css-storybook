@@ -2,7 +2,7 @@ import Switch from "../components/Switch";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Switch",
+  title: "styled-components/Switch",
   compnent: Switch,
 
   parameters: {

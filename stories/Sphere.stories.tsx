@@ -2,7 +2,7 @@ import App from "components/Sphere";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Sphere",
+  title: "styled-components/Sphere",
   component: App,
 
   parameters: {

@@ -2,7 +2,7 @@ import App from "components/3Ddice";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/3D Dice",
+  title: "styled-components/3D Dice",
   component: App,
 
   parameters: {

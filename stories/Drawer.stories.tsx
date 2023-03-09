@@ -1,8 +1,8 @@
-import App from "../components/Drawer";
+import App from "components/Drawer";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Drawer",
+  title: "styled-components/Drawer",
   component: App,
 
   argTypes: {

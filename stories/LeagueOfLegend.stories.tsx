@@ -2,7 +2,7 @@ import App from "components/LeagueOfLegend";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/League of Legend",
+  title: "styled-components/League of Legend",
   component: App,
 
   parameters: {

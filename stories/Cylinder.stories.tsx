@@ -2,7 +2,7 @@ import App from "components/Cylinder";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Cylinder",
+  title: "styled-components/Cylinder",
   component: App,
 
   parameters: {

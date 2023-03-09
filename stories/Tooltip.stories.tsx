@@ -2,7 +2,7 @@ import App from "components/Tooltip";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Tooltip",
+  title: "styled-components/Tooltip",
   component: App,
 
   parameters: {

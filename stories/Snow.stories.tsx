@@ -2,7 +2,7 @@ import App from "components/Snow";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Snow",
+  title: "styled-components/Snow",
   component: App,
 
   parameters: {

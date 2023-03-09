@@ -2,7 +2,7 @@ import App from "components/Coin";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Coin",
+  title: "styled-components/Coin",
   component: App,
 
   parameters: {

@@ -2,7 +2,7 @@ import App from "components/OnAir";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/On Air",
+  title: "styled-components/On Air",
   component: App,
 
   argTypes: {

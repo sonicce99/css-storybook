@@ -2,7 +2,7 @@ import Loading from "components/Loading";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Loading",
+  title: "styled-components/Loading",
   compnent: Loading,
 } as ComponentMeta<typeof Loading>;
 

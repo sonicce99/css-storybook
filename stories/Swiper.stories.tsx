@@ -2,7 +2,7 @@ import App from "components/Swiper";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Swiper",
+  title: "styled-components/Swiper",
   component: App,
 
   parameters: {

@@ -2,7 +2,7 @@ import App from "components/Barbershop";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 export default {
-  title: "dongsu/Barbershop",
+  title: "styled-components/Barbershop",
   component: App,
 
   parameters: {
