@@ -19,11 +19,16 @@ export default {
       control: { control: "text" },
     },
   },
+  showBorder: {
+    description: "가이드 border를 표시합니다",
+    control: { type: "boolean" },
+  },
 } as ComponentMeta<typeof App>;
 
 const Template: ComponentStory<typeof App> = (args) => <App {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  text: " THIS IS CAMFIT ADVERTISEMENT              WE ARE A GREAT TEAM ",
+  text: "  DIVERSE BUSTLING  CULTURAL MELTING POT BUTTON ",
+  showBorder: false,
 };
